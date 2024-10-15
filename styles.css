@@ -1,0 +1,359 @@
+/* Estilos generales */
+:root {
+    --scroll-size: 12px;
+    --scroll-radius: 20px;
+    --scroll-track: rgba(255, 255, 255, 0.621);
+    --scroll-thumb: #B9B9B9;
+    --scroll-thumb-hover:#A3B0B4;
+  }
+
+  body::-webkit-scrollbar {
+    width: var(--scroll-size, 10px);
+    height: var(--scroll-size, 10px);
+  }
+  body::-webkit-scrollbar-track {
+    background-color: var(--scroll-track, transparent);
+    border-radius: var(--scroll-track-radius, var(--scroll-radius));
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb-color, grey);
+    background-image: var(--scroll-thumb, none);
+    border: solid 1px #fff;
+    border-radius: var(--scroll-thumb-radius, var(--scroll-radius));
+  }
+
+  body::-webkit-scrollbar-thumb:hover{
+    background-color: var(--scroll-thumb-hover);
+  }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f1f6  !important;
+}
+
+section{
+    border-radius: 16px !important;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+section, button, .tree, .house, #car, #camera, #flash, h2, p {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/*header*/
+header {
+    background-image: linear-gradient(to bottom right, #0c1e49, #5c9ae6) !important;
+    color: #e2e8f0;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #cbd5e0;
+}
+
+header .font-light {
+    font-weight: 300;
+    color: #a5f0ff;
+}
+
+header ul {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+header ul li {
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+}
+
+header .border-t {
+    border-top-width: 2px;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    header ul {
+        gap: 1rem;
+    }
+}
+
+/* Estilo general de los botones */
+#controls button {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Colores específicos para cada botón */
+#simulate {
+    background-color: #4CAF50; /* Verde para iniciar simulación */
+}
+
+#simulate:hover {
+    background-color: #43a047;
+    transform: scale(1.05); /* Efecto de hover solo en el botón */
+    box-shadow: 0 8px 20px rgba(67, 160, 71, 0.4);
+}
+
+#reset {
+    background-color: #FFC107; /* Amarillo para reiniciar */
+}
+
+#reset:hover {
+    background-color: #ffb300;
+    transform: scale(1.05); /* Efecto de hover solo en el botón */
+    box-shadow: 0 8px 20px rgba(255, 179, 0, 0.4);
+}
+
+#brake {
+    background-color: #F44336; /* Rojo para frenar */
+}
+
+#brake:hover {
+    background-color: #e53935;
+    transform: scale(1.05); /* Efecto de hover solo en el botón */
+    box-shadow: 0 8px 20px rgba(229, 57, 53, 0.4);
+}
+
+/* Quitar el transform de otros elementos de input */
+#controls select:focus,
+#controls input[type="number"]:focus {
+    background-color: #ffffff;
+}
+
+
+
+ 
+
+/* Animaciones */
+#houses-container.animate {
+    animation: moveRoad 20s linear infinite;
+}
+
+.dash-line.animate {
+    animation: moveRoad 5s linear infinite;
+}
+
+@keyframes rotateWheel {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Estilos para la simulación visual */
+#route-map {
+    position: relative;
+}
+
+#vehicle-marker {
+    transition: left 0.1s linear;
+}
+
+
+@keyframes sway {
+    0% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+    100% { transform: rotate(-2deg); }
+}
+
+.shadow-dynamic {
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+    transition: filter 0.5s ease;
+}
+
+.shadow-dynamic-fast {
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
+    transition: filter 0.5s ease;
+}
+
+
+#simulation-container {
+    background: rgb(255,250,220);
+background: linear-gradient(306deg, rgba(255,250,220,1) 0%, rgba(69,170,236,1) 33%, rgba(155,211,247,1) 53%, rgba(235,246,249,1) 82%, rgba(251,233,211,1) 95%);
+}
+
+#simulation-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.dash-line {
+    background-image: linear-gradient(to right, white 50%, transparent 50%);
+    background-size: 20px 100%;
+    animation: moveRoad 5s linear infinite;
+}
+
+#houses-container {
+    display: flex;
+    animation: moveRoad 20s linear infinite;
+}
+
+.house {
+    width: 60px;
+    height: 80px;
+    background-color: #da924b;
+    margin-right: 40px;
+    position: relative;
+}
+
+.house::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 20px solid #c0392b;
+}
+
+.tree {
+    width: 40px;
+    height: 100px;
+    background-color: #228b22;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    animation: sway 3s ease-in-out infinite;
+}
+
+.tree::before {
+    content: '';
+    width: 20px;
+    height: 50px;
+    background-color: #8b4513;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#car {
+    transition: left 0.1s linear;
+}
+
+.car-body {
+    width: 100%;
+    height: 100%;
+    background-color: #f23340;
+    border-radius: 10px 30px 10px 10px;
+    position: relative;
+}
+
+.car-body::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    width: 30%;
+    height: 40%;
+    background-color: #5b0a0f;
+    border-radius: 5px;
+}
+
+.wheel {
+    position: absolute;
+    width: 20%;
+    height: 40%;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(199,208,226,1) 52%, rgba(31,37,48,1) 83%);
+    border-radius: 50%;
+    bottom: -10%;
+    animation: rotateWheel 1s linear infinite;
+    animation-play-state: paused; 
+}
+
+.wheel-front { right: 10%; }
+.wheel-back { left: 10%; }
+
+
+#camera {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.camera-body {
+    width: 100%;
+    height: 70%;
+    background-color: #34495e;
+    border-radius: 5px;
+}
+
+.camera-lens {
+    width: 60%;
+    height: 30%;
+    background-color: #95a5a6;
+    border-radius: 50%;
+    margin-top: -15%;
+}
+
+/* Cambia la cámara a rojo cuando se supera el límite de velocidad */
+#camera.over-speed-limit .camera-body {
+    background-color: #e74c3c; /* Rojo para indicar exceso de velocidad */
+}
+
+
+#flash {
+    transition: opacity 0.1s;
+}
+
+/* Estilos para controles y resultados */
+.focus\:ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Mejoras de responsive */
+@media (max-width: 768px) {
+    .grid-cols-1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animaciones adicionales */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
