@@ -58,6 +58,120 @@ section, button, .tree, .house, #car, #camera, #flash, h2, p {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
+
+.hidden {
+    display: none;
+}
+
+button.underline {
+    text-decoration: underline;
+    color: #2563eb;
+}
+
+button.underline:hover {
+    color: #1d4ed8;
+}
+
+.bg-gray-50 {
+    background-color: #f9fafb;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.bg-blue-500 {
+    background-color: #3b82f6;
+}
+
+.bg-blue-500:hover {
+    background-color: #2563eb;
+}
+
+.rounded {
+    border-radius: 0.5rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.p-3 {
+    padding: 0.75rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.text-blue-500 {
+    color: #3b82f6;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-red-500 {
+    color: #ef4444;
+}
+
+.text-green-500 {
+    color: #10b981;
+}
+
+.bg-gray-50 {
+    background-color: #f9fafb;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#physical-analysis .bg-gray-100 {
+    background-color: #f3f4f6;
+}
+
+#physical-analysis h3 {
+    color: #111827;
+}
+
+#physical-analysis .underline {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#physical-analysis .underline:hover {
+    color: #2563eb;
+}
+
+
+#final-stats .bg-gray-50,
+#safety-tips .bg-gray-50,
+#physical-analysis .bg-gray-50 {
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+#final-stats .bg-gray-50:hover,
+#safety-tips .bg-gray-50:hover,
+#physical-analysis .bg-gray-50:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+
 /*header*/
 header {
     background-image: linear-gradient(to bottom right, #0c1e49, #5c9ae6) !important;

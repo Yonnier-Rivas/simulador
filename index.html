@@ -176,26 +176,36 @@
         </div>
     </section>
     
-      <section id="results" class="bg-white rounded-lg shadow-lg p-6 mb-12">
-        <h2 class="text-2xl font-bold mb-4">Resultados de la Simulación</h2>
-        <div id="results-container"></div>
-      </section>
+    <section id="results" class="bg-white rounded-lg shadow-lg p-6 mb-12">
+      <h2 class="text-2xl font-bold mb-4">Resultados de la Simulación</h2>
+      <div id="results-container" class="space-y-4">
+          <!-- Aquí se agregarán los resultados mediante JavaScript -->
+      </div>
+  </section>
 
-      <section
-        id="safety-tips"
-        class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden"
-      >
-        <h2 class="text-2xl font-bold mb-4">Consejos de Seguridad Vial</h2>
-        <div id="tips-container" class="text-lg"></div>
-      </section>
+  <section id="physical-analysis" class="bg-white rounded-lg shadow-lg p-6 mb-12">
+    <h2 class="text-2xl font-bold mb-4">Análisis Físico Avanzado</h2>
+    <div id="analysis-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Análisis físico detallado -->
+    </div>
+</section>
 
-      <section
-        id="final-stats"
-        class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden"
-      >
+
+<section id="safety-tips" class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden">
+  <h2 class="text-2xl font-bold mb-4">Consejos de Seguridad Vial</h2>
+  <div id="tips-container" class="relative text-lg space-y-4">
+      <!-- Consejos de seguridad vial -->
+  </div>
+</section>
+
+
+      <section id="final-stats" class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden">
         <h2 class="text-2xl font-bold mb-4">Estadísticas Finales</h2>
-        <div id="stats-container" class="text-lg"></div>
-      </section>
+        <div id="stats-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Espacio para las estadísticas generadas dinámicamente -->
+        </div>
+    </section>
+    
     </main>
 
     <footer class="bg-gray-800 text-white py-4 mt-12">
