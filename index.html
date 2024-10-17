@@ -11,34 +11,38 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="bg-gray-100 font-sans">
-    <header class="bg-gradient-to-br  text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <!-- Título del Proyecto -->
-            <h1 class="text-6xl font-extrabold mb-4">Simulador de Fotomultas</h1>
-            
-            <!-- Eslogan del Proyecto -->
-            <p class="text-2xl font-light mb-6 text-blue-300">"Controla la velocidad, comprende las consecuencias"</p>
-            
-            <!-- Descripción del Proyecto -->
-            <p class="text-lg mb-8 max-w-3xl mx-auto text-gray-300">
-                Experimenta un simulador diseñado para educar y crear conciencia sobre la seguridad vial. 
-                Observa en tiempo real el efecto de la velocidad sobre el comportamiento del vehículo y descubre cómo las fotomultas a través de la física pueden salvar vidas.
-            </p>
-            
-            <!-- Nombres de los Integrantes -->
-            <div class="text-lg mt-8 border-t border-gray-500 pt-4">
-                <h2 class="font-semibold text-blue-200 mb-2">Equipo de Desarrollo:</h2>
-                <ul class="flex flex-wrap justify-center gap-6 text-gray-300">
-                    <li>Yonnier David Rivas</li>
-                    <li>Jhon Camilo Toro</li>
-                    <li>Estafany Rodriguez</li>
-                    <li>John Jairo Muñoz Ramirez</li>
-                </ul>
-            </div>
+    <header class="bg-gradient-to-br text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <!-- Título del Proyecto -->
+        <h1 class="text-6xl font-extrabold mb-4">Simulador de Fotomultas</h1>
+
+        <!-- Eslogan del Proyecto -->
+        <p class="text-2xl font-light mb-6 text-blue-300">
+          "Controla la velocidad, comprende las consecuencias"
+        </p>
+
+        <!-- Descripción del Proyecto -->
+        <p class="text-lg mb-8 max-w-3xl mx-auto text-gray-300">
+          Experimenta un simulador diseñado para educar y crear conciencia sobre
+          la seguridad vial. Observa en tiempo real el efecto de la velocidad
+          sobre el comportamiento del vehículo y descubre cómo las fotomultas a
+          través de la física pueden salvar vidas.
+        </p>
+
+        <!-- Nombres de los Integrantes -->
+        <div class="text-lg mt-8 border-t border-gray-500 pt-4">
+          <h2 class="font-semibold text-blue-200 mb-2">
+            Equipo de Desarrollo:
+          </h2>
+          <ul class="flex flex-wrap justify-center gap-6 text-gray-300">
+            <li>Yonnier David Rivas</li>
+            <li>Jhon Camilo Toro</li>
+            <li>Estafany Rodriguez</li>
+            <li>John Jairo Muñoz Ramirez</li>
+          </ul>
         </div>
+      </div>
     </header>
-    
-    
 
     <main class="container mx-auto px-4 py-8">
       <section
@@ -90,56 +94,106 @@
       </section>
 
       <section id="controls" class="mb-12 bg-white rounded-lg shadow-lg p-8">
-        <h2 class="text-3xl font-bold text-center mb-8">Configura tu Simulación</h2>
+        <h2 class="text-3xl font-bold text-center mb-8">
+          Configura tu Simulación
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <!-- Zona -->
-            <div>
-                <label for="zone" class="block mb-2 font-semibold text-gray-700">Tipo de Zona</label>
-                <select id="zone" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500">
-                    <option value="residential">Residencial (30 km/h)</option>
-                    <option value="urban">Urbana (60 km/h)</option>
-                    <option value="highway">Autopista (80 km/h)</option>
-                </select>
-            </div>
-            <!-- Velocidad -->
-            <div>
-                <label for="speed" class="block mb-2 font-semibold text-gray-700">Velocidad del Vehículo (km/h)</label>
-                <input type="number" id="speed" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500" min="0">
-            </div>
-            <!-- Distancia -->
-            <div>
-                <label for="distance" class="block mb-2 font-semibold text-gray-700">Distancia hasta la Cámara (m)</label>
-                <input type="number" id="distance" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500" min="0">
-            </div>
-            <!-- Clima -->
-            <div>
-                <label for="weather" class="block mb-2 font-semibold text-gray-700">Condiciones Climáticas</label>
-                <select id="weather" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500">
-                    <option value="dry">Seco</option>
-                    <option value="rainy">Lluvioso</option>
-                    <option value="snowy">Nevado</option>
-                </select>
-            </div>
+          <!-- Zona -->
+          <div>
+            <label for="zone" class="block mb-2 font-semibold text-gray-700"
+              >Tipo de Zona</label
+            >
+            <select
+              id="zone"
+              class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500"
+            >
+              <option value="residential">Residencial (30 km/h)</option>
+              <option value="urban">Urbana (60 km/h)</option>
+              <option value="highway">Autopista (80 km/h)</option>
+            </select>
+          </div>
+          <!-- Velocidad -->
+          <div>
+            <label for="speed" class="block mb-2 font-semibold text-gray-700"
+              >Velocidad del Vehículo (km/h)</label
+            >
+            <input
+              type="number"
+              id="speed"
+              class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500"
+              min="0"
+            />
+          </div>
+          <!-- Distancia -->
+          <div>
+            <label for="distance" class="block mb-2 font-semibold text-gray-700"
+              >Distancia hasta la Cámara (m)</label
+            >
+            <input
+              type="number"
+              id="distance"
+              class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500"
+              min="0"
+            />
+          </div>
+          <!-- Clima -->
+          <div>
+            <label for="weather" class="block mb-2 font-semibold text-gray-700"
+              >Condiciones Climáticas</label
+            >
+            <select
+              id="weather"
+              class="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring focus:ring-indigo-500"
+            >
+              <option value="dry">Seco</option>
+              <option value="rainy">Lluvioso</option>
+              <option value="snowy">Nevado</option>
+            </select>
+          </div>
         </div>
         <!-- Contenedores de Información -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div class="text-center bg-indigo-100 p-6 rounded-full shadow-lg">
-                <h3 class="text-xl font-bold text-indigo-600">Velocidad Actual</h3>
-                <p id="current-speed" class="text-4xl font-semibold text-indigo-900">0 km/h</p>
-            </div>
-            <div class="text-center bg-red-100 p-6 rounded-full shadow-lg">
-                <h3 class="text-xl font-bold text-red-600">Distancia de Frenado</h3>
-                <p id="braking-distance" class="text-4xl font-semibold text-red-900">0 m</p>
-            </div>
+          <div class="text-center bg-indigo-100 p-6 rounded-full shadow-lg">
+            <h3 class="text-xl font-bold text-indigo-600">Velocidad Actual</h3>
+            <p
+              id="current-speed"
+              class="text-4xl font-semibold text-indigo-900"
+            >
+              0 km/h
+            </p>
+          </div>
+          <div class="text-center bg-red-100 p-6 rounded-full shadow-lg">
+            <h3 class="text-xl font-bold text-red-600">Distancia de Frenado</h3>
+            <p
+              id="braking-distance"
+              class="text-4xl font-semibold text-red-900"
+            >
+              0 m
+            </p>
+          </div>
         </div>
         <!-- Botones de Acción -->
         <div class="flex justify-center space-x-4 mt-8">
-            <button id="simulate" class="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition duration-300">Simular</button>
-            <button id="reset" class="bg-gray-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition duration-300">Reiniciar</button>
-            <button id="brake" class="bg-red-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-600 transition duration-300">Frenar</button>
+          <button
+            id="simulate"
+            class="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition duration-300"
+          >
+            Simular
+          </button>
+          <button
+            id="reset"
+            class="bg-gray-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition duration-300"
+          >
+            Reiniciar
+          </button>
+          <button
+            id="brake"
+            class="bg-red-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-600 transition duration-300"
+          >
+            Frenar
+          </button>
         </div>
-    </section>
-    
+      </section>
 
       <section id="map-section" class="bg-white rounded-lg shadow-lg p-6 mb-12">
         <h2 class="text-2xl font-bold mb-4">Mapa de la Ruta</h2>
@@ -157,55 +211,66 @@
       <section id="graphs" class="mb-12 bg-white rounded-lg shadow-lg p-6">
         <h2 class="text-2xl font-bold mb-4">Gráficas de la Simulación</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-                <h3 class="text-xl font-semibold mb-2">Posición vs Tiempo</h3>
-                <canvas id="position-time-graph"></canvas>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold mb-2">Velocidad vs Tiempo</h3>
-                <canvas id="velocity-time-graph"></canvas>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold mb-2">Fuerza de Fricción vs Tiempo</h3>
-                <canvas id="friction-force-graph"></canvas>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold mb-2">Aceleración vs Tiempo</h3>
-                <canvas id="acceleration-time-graph"></canvas>
-            </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Posición vs Tiempo</h3>
+            <canvas id="position-time-graph"></canvas>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Velocidad vs Tiempo</h3>
+            <canvas id="velocity-time-graph"></canvas>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">
+              Fuerza de Fricción vs Tiempo
+            </h3>
+            <canvas id="friction-force-graph"></canvas>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Aceleración vs Tiempo</h3>
+            <canvas id="acceleration-time-graph"></canvas>
+          </div>
         </div>
-    </section>
-    
-    <section id="results" class="bg-white rounded-lg shadow-lg p-6 mb-12">
-      <h2 class="text-2xl font-bold mb-4">Resultados de la Simulación</h2>
-      <div id="results-container" class="space-y-4">
+      </section>
+
+      <section id="results" class="bg-white rounded-lg shadow-lg p-6 mb-12">
+        <h2 class="text-2xl font-bold mb-4">Resultados de la Simulación</h2>
+        <div id="results-container" class="space-y-4">
           <!-- Aquí se agregarán los resultados mediante JavaScript -->
-      </div>
-  </section>
+        </div>
+      </section>
 
-  <section id="physical-analysis" class="bg-white rounded-lg shadow-lg p-6 mb-12">
-    <h2 class="text-2xl font-bold mb-4">Análisis Físico Avanzado</h2>
-    <div id="analysis-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Análisis físico detallado -->
-    </div>
-</section>
+      <section
+        id="physical-analysis"
+        class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden"
+      >
+        <h2 class="text-2xl font-bold mb-4">Análisis Físico Avanzado</h2>
+        <div
+          id="analysis-container"
+          class="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
+          <!-- Análisis físico detallado -->
+        </div>
+      </section>
 
+      <section
+        id="safety-tips"
+        class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden"
+      >
+        <h2 class="text-2xl font-bold mb-4">Consejos de Seguridad Vial</h2>
+        <div id="tips-container" class="relative text-lg space-y-4">
+          <!-- Consejos de seguridad vial -->
+        </div>
+      </section>
 
-<section id="safety-tips" class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden">
-  <h2 class="text-2xl font-bold mb-4">Consejos de Seguridad Vial</h2>
-  <div id="tips-container" class="relative text-lg space-y-4">
-      <!-- Consejos de seguridad vial -->
-  </div>
-</section>
-
-
-      <section id="final-stats" class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden">
+      <section
+        id="final-stats"
+        class="bg-white rounded-lg shadow-lg p-6 mb-12 hidden"
+      >
         <h2 class="text-2xl font-bold mb-4">Estadísticas Finales</h2>
         <div id="stats-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Espacio para las estadísticas generadas dinámicamente -->
+          <!-- Espacio para las estadísticas generadas dinámicamente -->
         </div>
-    </section>
-    
+      </section>
     </main>
 
     <footer class="bg-gray-800 text-white py-4 mt-12">

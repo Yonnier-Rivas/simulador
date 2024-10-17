@@ -154,7 +154,6 @@ function attachEventListeners() {
   brakeBtn.addEventListener("click", applyBrakes);
 }
 
-
 function startSimulation() {
   const initialSpeed = parseFloat(speedInput.value);
   const totalDistance = parseFloat(distanceInput.value);
@@ -168,7 +167,7 @@ function startSimulation() {
   } else {
     frictionCoefficient = 0.7; // Valor predeterminado para clima seco
   }
-  
+
   if (
     isNaN(initialSpeed) ||
     isNaN(totalDistance) ||
@@ -474,6 +473,7 @@ function displayResults(finalSpeed, speedLimit, brakingDistance) {
   // Generar y mostrar estadísticas finales
   const statsContainer = document.getElementById("stats-container");
   const finalStatsSection = document.getElementById("final-stats");
+ 
 
   const maxSpeed = Math.max(...simulationData.map((data) => data.speed));
   const totalDistanceCovered =
@@ -513,13 +513,13 @@ function toggleSection(id) {
 
 function displayPhysicalAnalysis(finalSpeed, brakingDistance, mass = 1000) {
   const frictionForce = frictionCoefficient * mass * GRAVITY;
-    const initialSpeed = parseFloat(speedInput.value) / 3.6; // Convertir km/h a m/s
-    const kineticEnergy = 0.5 * mass * Math.pow(initialSpeed, 2);
-    const momentum = mass * initialSpeed;
-    const acceleration = (Math.pow(initialSpeed, 2)) / (2 * brakingDistance);
-    const workDone = frictionForce * brakingDistance;
-    const averagePower = workDone / (initialSpeed / acceleration); // Suponiendo frenado uniforme
-  
+  const initialSpeed = parseFloat(speedInput.value) / 3.6; // Convertir km/h a m/s
+  const kineticEnergy = 0.5 * mass * Math.pow(initialSpeed, 2);
+  const momentum = mass * initialSpeed;
+  const acceleration = Math.pow(initialSpeed, 2) / (2 * brakingDistance);
+  const workDone = frictionForce * brakingDistance;
+  const averagePower = workDone / (initialSpeed / acceleration); // Suponiendo frenado uniforme
+
   const analysisHTML = `
   
       <div class="bg-gray-50 p-4 rounded-lg shadow-lg mt-4">
@@ -553,10 +553,14 @@ function displayPhysicalAnalysis(finalSpeed, brakingDistance, mass = 1000) {
               <h3 class="text-xl font-bold text-blue-600">Fuerza de Fricción</h3>
               <button onclick="toggleSection('friction-details')" class="bg-blue-500 text-white rounded px-3 py-1 text-sm">Detalles</button>
           </div>
-          <p><strong>Fuerza de fricción aplicada:</strong> ${frictionForce.toFixed(2)} N</p>
+          <p><strong>Fuerza de fricción aplicada:</strong> ${frictionForce.toFixed(
+            2
+          )} N</p>
           <div id="friction-details" class="hidden mt-2">
               <p>F = μ * m * g</p>
-              <p>F = ${frictionCoefficient.toFixed(2)} * ${mass} kg * ${GRAVITY} m/s²</p>
+              <p>F = ${frictionCoefficient.toFixed(
+                2
+              )} * ${mass} kg * ${GRAVITY} m/s²</p>
               <br>
               <p>Fuerza normal = ${mass} kg * ${GRAVITY} m/s²</p>
               <p>Fuerza normal = ${mass * GRAVITY} N </p>
@@ -582,7 +586,9 @@ function displayPhysicalAnalysis(finalSpeed, brakingDistance, mass = 1000) {
               <h3 class="text-xl font-bold text-blue-600">Energía Cinética</h3>
               <button onclick="toggleSection('energy-details')" class="bg-blue-500 text-white rounded px-3 py-1 text-sm">Detalles</button>
           </div>
-          <p><strong>Energía cinética inicial:</strong> ${kineticEnergy.toFixed(2)} J</p>
+          <p><strong>Energía cinética inicial:</strong> ${kineticEnergy.toFixed(
+            2
+          )} J</p>
           <div id="energy-details" class="hidden mt-2">
               <p>KE = 1/2 * m * v²</p>
               <p>KE = 1/2 * ${mass} kg * (${initialSpeed.toFixed(2)} m/s)²</p>
@@ -591,18 +597,26 @@ function displayPhysicalAnalysis(finalSpeed, brakingDistance, mass = 1000) {
   `;
 
   document.getElementById("analysis-container").innerHTML = analysisHTML;
+  document.getElementById("physical-analysis").classList.remove("hidden");
 }
 
 function endSimulation() {
   cancelAnimationFrame(animationId);
   const finalSpeed = currentSpeed;
   const speedLimit = getSpeedLimit();
-  const brakingDistance = calculateBrakingDistance(parseFloat(speedInput.value));
+  const brakingDistance = calculateBrakingDistance(
+    parseFloat(speedInput.value)
+  );
   displayResults(finalSpeed, speedLimit, brakingDistance);
   displayPhysicalAnalysis(finalSpeed, brakingDistance); // Llamar a la función de análisis físico
 }
 
-function displayFinalStats(maxSpeed, totalDistanceCovered, totalTime, exceededLimit) {
+function displayFinalStats(
+  maxSpeed,
+  totalDistanceCovered,
+  totalTime,
+  exceededLimit
+) {
   const statsContainer = document.getElementById("stats-container");
   const statsHTML = `
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -613,18 +627,26 @@ function displayFinalStats(maxSpeed, totalDistanceCovered, totalTime, exceededLi
         </div>
         <div class="mt-2 relative pt-1">
           <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
-            <div style="width:${Math.min((maxSpeed / 120) * 100, 100)}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+            <div style="width:${Math.min(
+              (maxSpeed / 120) * 100,
+              100
+            )}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
           </div>
         </div>
       </div>
       <div class="bg-white p-4 rounded-lg shadow-md">
         <div class="flex items-center justify-between">
           <h3 class="text-xl font-semibold text-green-600">Distancia Total</h3>
-          <span class="text-2xl font-bold">${totalDistanceCovered.toFixed(2)} m</span>
+          <span class="text-2xl font-bold">${totalDistanceCovered.toFixed(
+            2
+          )} m</span>
         </div>
         <div class="mt-2 relative pt-1">
           <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-200">
-            <div style="width:${Math.min((totalDistanceCovered / 1000) * 100, 100)}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+            <div style="width:${Math.min(
+              (totalDistanceCovered / 1000) * 100,
+              100
+            )}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
           </div>
         </div>
       </div>
@@ -635,17 +657,28 @@ function displayFinalStats(maxSpeed, totalDistanceCovered, totalTime, exceededLi
         </div>
         <div class="mt-2 relative pt-1">
           <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-yellow-200">
-            <div style="width:${Math.min((totalTime / 60) * 100, 100)}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-500"></div>
+            <div style="width:${Math.min(
+              (totalTime / 60) * 100,
+              100
+            )}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-500"></div>
           </div>
         </div>
       </div>
       <div class="bg-white p-4 rounded-lg shadow-md">
         <div class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold ${exceededLimit ? 'text-red-600' : 'text-green-600'}">Estado</h3>
-          <span class="text-2xl font-bold">${exceededLimit ? 'Límite Excedido' : 'Dentro del Límite'}</span>
+          <h3 class="text-xl font-semibold ${
+            exceededLimit ? "text-red-600" : "text-green-600"
+          }">Estado</h3>
+          <span class="text-2xl font-bold">${
+            exceededLimit ? "Límite Excedido" : "Dentro del Límite"
+          }</span>
         </div>
         <div class="mt-2 text-center">
-          <i class="fas ${exceededLimit ? 'fa-exclamation-triangle text-red-500' : 'fa-check-circle text-green-500'} text-4xl"></i>
+          <i class="fas ${
+            exceededLimit
+              ? "fa-exclamation-triangle text-red-500"
+              : "fa-check-circle text-green-500"
+          } text-4xl"></i>
         </div>
       </div>
     </div>
@@ -657,9 +690,9 @@ function displayFinalStats(maxSpeed, totalDistanceCovered, totalTime, exceededLi
 function displaySafetyTips(exceededLimit) {
   const tipsContainer = document.getElementById("tips-container");
   let tipsHTML;
-  
+
   if (exceededLimit) {
-      tipsHTML = `
+    tipsHTML = `
           <div class="bg-red-100 text-red-600 p-4 rounded-lg shadow-md transition-opacity duration-300">
               <p>⚠️ Has superado el límite de velocidad. Modera tu velocidad especialmente en zonas residenciales.</p>
           </div>
@@ -668,18 +701,16 @@ function displaySafetyTips(exceededLimit) {
           </div>
       `;
   } else {
-      tipsHTML = `
+    tipsHTML = `
           <div class="bg-green-100 text-green-600 p-4 rounded-lg shadow-md transition-opacity duration-300">
               <p>✅ Has mantenido una velocidad adecuada. Recuerda siempre seguir las señales de tráfico.</p>
           </div>
       `;
   }
-  
+
   tipsContainer.innerHTML = tipsHTML;
   document.getElementById("safety-tips").classList.remove("hidden");
 }
-
-
 
 function resetSimulation() {
   // Detener la animación de la simulación
@@ -735,6 +766,7 @@ function resetSimulation() {
   document.getElementById("safety-tips").classList.add("hidden");
   document.getElementById("tips-container").innerHTML = "";
   document.getElementById("final-stats").classList.add("hidden");
+  document.getElementById("physical-analysis").classList.add("hidden");
   document.getElementById("stats-container").innerHTML = "";
 
   // Reactivar el botón de frenar
