@@ -322,7 +322,7 @@ function updateCharts(time, position, speed) {
   velocityTimeChart.data.datasets[0].data.push(speed.toFixed(2));
   velocityTimeChart.update();
 
-  // Actualizar la gráfica de aceleración
+  // Actualizar la gráfica de aceleración  AGREGADO!!
   accelerationTimeChart.data.labels.push(time.toFixed(1));
   accelerationTimeChart.data.datasets[0].data.push(acceleration.toFixed(2));
   accelerationTimeChart.update();
