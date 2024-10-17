@@ -123,6 +123,14 @@ function initializeCharts() {
         elements: { line: { tension: 0.4 } }
     }
 });
+
+// Gráfica de Aceleración vs Tiempo (nueva)
+accelerationTimeChart = new Chart('acceleration-time-graph', {
+  type: 'line',
+  data: { datasets: [{ label: 'Aceleración (m/s²)', borderColor: 'rgb(255, 159, 64)', data: [] }] },
+  options: { ...chartOptions, scales: { ...chartOptions.scales, y: { title: { text: 'Aceleración (m/s²)' } } } }
+});
+
 }
 
 function attachEventListeners() {
@@ -302,6 +310,10 @@ function updateVisualSimulation(position, totalDistance) {
 }
 
 function updateCharts(time, position, speed) {
+  const deltaTime = simulationData.length ? time - simulationData[simulationData.length - 1].time : 0;
+  const deltaSpeed = simulationData.length ? speed - simulationData[simulationData.length - 1].speed : 0;
+  const acceleration = deltaTime > 0 ? deltaSpeed / deltaTime : 0; // Calcula la aceleración
+
   positionTimeChart.data.labels.push(time.toFixed(1));
   positionTimeChart.data.datasets[0].data.push(position.toFixed(2));
   positionTimeChart.update();
@@ -309,6 +321,11 @@ function updateCharts(time, position, speed) {
   velocityTimeChart.data.labels.push(time.toFixed(1));
   velocityTimeChart.data.datasets[0].data.push(speed.toFixed(2));
   velocityTimeChart.update();
+
+  // Actualizar la gráfica de aceleración
+  accelerationTimeChart.data.labels.push(time.toFixed(1));
+  accelerationTimeChart.data.datasets[0].data.push(acceleration.toFixed(2));
+  accelerationTimeChart.update();
 }
 
 const weatherSelect = document.getElementById("weather");
@@ -480,6 +497,11 @@ function resetSimulation() {
     velocityTimeChart.data.datasets[0].data = [];
     velocityTimeChart.update();
 
+    // Restablecer la gráfica de aceleración
+    accelerationTimeChart.data.labels = [];
+    accelerationTimeChart.data.datasets[0].data = [];
+    accelerationTimeChart.update();
+
     // Restablecer la gráfica de fuerza de fricción (si fue añadida)
     if (typeof frictionForceChart !== "undefined") {
         frictionForceChart.data.labels = [];
@@ -496,12 +518,6 @@ function resetSimulation() {
 
     // Reactivar el botón de frenar
     brakeBtn.disabled = false;
-
-    // Ocultar cualquier aviso de frenado
-    const brakeAdvice = document.getElementById('brake-advice');
-    if (brakeAdvice) {
-        brakeAdvice.classList.add('hidden');
-    }
 
     // Restablecer el coeficiente de fricción al valor predeterminado si es necesario
     frictionCoefficient = 0.7;
